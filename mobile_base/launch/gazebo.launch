@@ -1,0 +1,61 @@
+<launch>
+  <include
+    file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="true"/>
+  </include>
+
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 base_link base_footprint 40" />
+
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find mobile_base)/urdf/mobile_base.urdf 
+       -urdf 
+    -x 5
+    -y 0
+    -z 0
+    -R 0
+    -P 0
+    -Y 0
+    -J f_l_prismatic_joint 0
+    -J f_r_prismatic_joint 0
+    -J r_l_prismatic_joint 0
+    -J r_r_prismatic_joint 0
+    -model mobile_base "
+      output="screen" />
+   
+         
+  <param name="robot_description" command="$(find xacro)/xacro $(find mobile_base)/urdf/mobile_base.urdf" />  
+  
+  <node name="fake_joint_calibration" pkg="rostopic" type="rostopic" args="pub /calibrated std_msgs/Bool true" />
+ 
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/mobile_base/joint_states" />
+  </node> 
+
+  <rosparam file="$(find mobile_base)/controller/controller_mobile_base.yaml" command="load"/> 
+  
+  <node name="controller"
+      pkg="controller_manager" 
+      type="spawner" 
+      respawn="false"
+    	output="screen" 
+      ns="/mobile_base" 
+      args="joint_state_controller
+      f_l_ew_joint_velocity_controller
+      f_r_ew_joint_velocity_controller
+      r_l_ew_joint_velocity_controller
+      r_r_ew_joint_velocity_controller
+      f_l_rotate_joint_position_controller
+      f_r_rotate_joint_position_controller
+      r_l_rotate_joint_position_controller
+      r_r_rotate_joint_position_controller
+      "/>
+      
+</launch>

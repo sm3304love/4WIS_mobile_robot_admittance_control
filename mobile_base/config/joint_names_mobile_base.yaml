@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'f_l_prismatic_joint', 'f_1_rotate_joint', 'f_l_ew_rotate', 'f_r_prismatic_joint', 'f_r_rotate_joint', 'f_r_ew_joint', 'r_r_prismatic_joint', 'r_r_rotate_joint', 'r_r_ew_joint', 'r_l_prismatic_joint', 'r_l_rotate_joint', 'r_l_ew_joint', ]

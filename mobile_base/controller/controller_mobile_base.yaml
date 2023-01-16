@@ -1,0 +1,51 @@
+mobile_base:
+
+  joint_state_controller:
+      type: joint_state_controller/JointStateController
+      publish_rate: 1000 
+
+
+  f_l_ew_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: f_l_ew_joint
+    pid: {p: 10, i: 10, d: 0.1}
+
+  f_r_ew_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: f_r_ew_joint
+    pid: {p: 10, i: 10, d: 0.1}
+
+  r_l_ew_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: r_l_ew_joint
+    pid: {p: 10, i: 10, d: 0.1}
+   
+  r_r_ew_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: r_r_ew_joint
+    pid: {p: 10, i: 10, d: 0.1}
+
+
+
+  f_l_rotate_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: f_l_rotate_joint
+    pid: {p: 100, i: 10, d: 0.1}
+
+  f_r_rotate_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: f_r_rotate_joint
+    pid: {p: 100, i: 10, d: 0.1}
+
+  r_l_rotate_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: r_l_rotate_joint
+    pid: {p: 100, i: 10, d: 0.1}
+   
+  r_r_rotate_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: r_r_rotate_joint
+    pid: {p: 100, i: 10, d: 0.1}
+
+
+    

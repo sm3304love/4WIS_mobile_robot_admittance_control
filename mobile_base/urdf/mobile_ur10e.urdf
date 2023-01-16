@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mobile_ur10e">
+  
+  <link
+    name="base_footprint"/>
+  
+   <joint
+    name="base_joint"
+    type="fixed">
+    <origin
+      xyz="0.0 0.0 0.0"
+      rpy="0.0 0.0 0.0" /> 
+    <parent
+      link="base_footprint" />
+    <child
+      link="base_link" />
+  </joint>
+
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.000116077702547958 -0.0350031160113934 0.298943810669157"
+        rpy="0 0 0" />
+      <mass
+        value="56"/>
+      <inertia
+        ixx="5.31"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="5.258"
+        iyz="0.0"
+        izz="5.310" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.925490196078431 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="f_l_prismatic">
+    <inertial>
+      <origin
+        xyz="-1.66533453693773E-16 2.22044604925031E-16 -0.00277737910243356"
+        rpy="0 0 0" />
+      <mass
+        value="0.63" />
+      <inertia
+        ixx="0.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+      <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_l_prismatic.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_l_prismatic.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f_l_prismatic_joint"
+    type="prismatic">
+    <origin
+      xyz="0.2998 -0.33482 0.24287"
+      rpy="0.0026114 0.002229 0" /> 
+    <parent
+      link="base_link" />
+    <child
+      link="f_l_prismatic" />
+    <axis xyz="0 0 1" />
+      <limit
+      lower="0.01"
+      upper="0.05"
+      effort="0"
+      velocity="0" />
+    <dynamics 
+    damping="50"
+    friction="1"
+    spring_stiffness="0" 
+    spring_referance="0" />
+  </joint>
+  <link
+    name="f_1_rotate">
+    <inertial>
+      <origin
+        xyz="-0.000108967571125163 -0.0488863047415668 -0.000127660035035393"
+        rpy="0 0 0" />
+      <mass
+        value="0.35" />
+      <inertia
+        ixx="0.01"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.01"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_1_rotate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_1_rotate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f_1_rotate_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0527773791024335"
+      rpy="1.56818496671092 -0.00222898866464819 0" />
+    <parent
+      link="f_l_prismatic" />
+    <child
+      link="f_1_rotate" />
+    <axis
+      xyz="0.00222898681890077 0.999994106215458 0.00261135062896505" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f_l_ew">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.89" />
+      <inertia
+        ixx="018"
+        ixy="0.01"
+        ixz="0.17"
+        iyy="0.34"
+        iyz="0.01"
+        izz="0.18" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_l_ew.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_l_ew.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f_l_ew_rotate"
+    type="continuous">
+    <origin
+      xyz="-0.000222898681890127 -0.0999994106215459 -0.000261135062896545"
+      rpy="3.13936402790797 -1.57065442321589 0" />
+    <parent
+      link="f_1_rotate" />
+    <child
+      link="f_l_ew" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="f_r_prismatic">
+    <inertial>
+      <origin
+        xyz="-1.11022302462516E-16 1.11022302462516E-16 -0.0027773791024335"
+        rpy="0 0 0" />  
+      <mass
+        value="0.63" />
+      <inertia
+        ixx="0.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+     <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_r_prismatic.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_r_prismatic.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f_r_prismatic_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.3002 -0.3349 0.24421"
+      rpy="0.0026114 0.002229 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="f_r_prismatic" />
+    <axis
+      initial_position = "500"
+      xyz="0 0 1" />
+    <limit
+      lower="0.01"
+       upper="0.05"
+      effort="0"
+      velocity="0" />
+    <dynamics 
+    damping="50"  
+    friction="1"
+    spring_stiffness="0" 
+    spring_referance="0"/>
+  </joint>
+  <link
+    name="f_r_rotate">
+    <inertial>
+      <origin
+        xyz="-0.000108967571125163 -0.0488863047415668 -0.000127660035035393"
+        rpy="0 0 0" />
+      <mass
+        value="0.35" />
+      <inertia
+        ixx="01"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_r_rotate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_r_rotate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f_r_rotate_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0527773791024335"
+      rpy="1.56818496671092 -0.00222898866464819 0" />
+    <parent
+      link="f_r_prismatic" />
+    <child
+      link="f_r_rotate" />
+    <axis
+      xyz="0.00222898681890077 0.999994106215458 0.00261135062896505" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="f_r_ew">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.89" />
+      <inertia
+        ixx="018"
+        ixy="0.01"
+        ixz="0.17"
+        iyy="0.34"
+        iyz="0.01"
+        izz="0.18" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_r_ew.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/f_r_ew.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f_r_ew_joint"
+    type="continuous">
+    <origin
+      xyz="-0.000222898681890127 -0.0999994106215459 -0.000261135062896545"
+      rpy="-0.00222862568182399 -1.57065442321589 0" />
+    <parent
+      link="f_r_rotate" />
+    <child
+      link="f_r_ew" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="r_r_prismatic">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 1.11022302462516E-16 -0.00277737910243359"
+        rpy="0 0 0" />
+      <mass
+        value="0.63" />
+      <inertia
+        ixx="0.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_r_prismatic.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_r_prismatic.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_r_prismatic_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.30028 0.2651 0.24578"
+      rpy="0.0026114 0.002229 0" /> original 0.24578
+    <parent
+      link="base_link" />
+    <child
+      link="r_r_prismatic" />
+    <axis
+      
+      xyz="0 0 1" />
+    <limit
+      lower="0.01"
+       upper="0.05"
+      effort="0"
+      velocity="0" />
+    <dynamics 
+    damping="50"
+    friction="1"
+    spring_stiffness="0" 
+    spring_referance="0" />
+  </joint>
+  <link
+    name="r_r_rotate">
+    <inertial>
+      <origin
+        xyz="-0.000108967571125107 -0.0488863047415668 -0.000127660035035393"
+        rpy="0 0 0" />
+      <mass
+        value="0.35" />
+      <inertia
+        ixx="0.01"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.01"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_r_rotate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_r_rotate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_r_rotate_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0527773791024335"
+      rpy="1.56818496671092 -0.00222898866464819 0" />
+    <parent
+      link="r_r_prismatic" />
+    <child
+      link="r_r_rotate" />
+    <axis
+      xyz="0.00222898681890077 0.999994106215458 0.00261135062896505" />
+    <limit
+      lower="-1.5708" 
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="r_r_ew">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.89" />
+      <inertia
+        ixx="018"
+        ixy="0.01"
+        ixz="0.17"
+        iyy="0.34"
+        iyz="0.01"
+        izz="0.18" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_r_ew.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_r_ew.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_r_ew_joint"
+    type="continuous">
+    <origin
+      xyz="-0.000222898681890127 -0.0999994106215459 -0.000261135062896489"
+      rpy="-0.00222862568182399 -1.57065442321589 0" />
+    <parent
+      link="r_r_rotate" />
+    <child
+      link="r_r_ew" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="r_l_prismatic">
+    <inertial>
+      <origin
+        xyz="0 1.66533453693773E-16 -0.0027773791024335"
+        rpy="0 0 0" />
+      <mass
+        value="0.63" />
+      <inertia
+        ixx="0.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+ 
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_l_prismatic.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_l_prismatic.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="r_l_prismatic_joint"
+    type="prismatic">
+    <origin
+      xyz="0.299720607952755 0.265181054293093 0.24444162435061"
+      rpy="0.00261136657109324 0.00222898106467852 0" /> -0.24444162435061
+    <parent
+      link="base_link" />
+    <child
+      link="r_l_prismatic" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0.01"
+       upper="0.05"
+      effort="0"
+      velocity="0" />
+    <dynamics 
+      damping="50"
+      friction="1"
+      spring_stiffness="0" 
+      spring_referance="0"
+      />
+  </joint>
+  <link
+    name="r_l_rotate">
+    <inertial>
+      <origin
+        xyz="-0.000108967571125052 -0.0488863047415668 -0.000127660035035393"
+        rpy="0 0 0" />
+      <mass
+        value="0.35" />
+      <inertia
+        ixx="0.01"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.01"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_l_rotate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_l_rotate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_l_rotate_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0527773791024335"
+      rpy="1.56818496671092 -0.00222898866464819 0" />
+    <parent
+      link="r_l_prismatic" />
+    <child
+      link="r_l_rotate" />
+    <axis
+      xyz="0.00222898681890077 0.999994106215458 0.00261135062896505" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="r_l_ew">
+    <inertial>
+      <origin
+        xyz="0 1.38777878078145E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.89" />
+      <inertia
+        ixx="018"
+        ixy="0.01"
+        ixz="0.17"
+        iyy="0.34"
+        iyz="0.01"
+        izz="0.18" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_l_ew.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.811764705882353 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_base/meshes/r_l_ew.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_l_ew_joint"
+    type="continuous">
+    <origin
+      xyz="-0.000222898681890127 -0.0999994106215459 -0.000261135062896489"
+      rpy="3.13936402790797 -1.57065442321589 0" />
+    <parent
+      link="r_l_rotate" />
+    <child
+      link="r_l_ew" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+
+  <joint name="mobile_to_ur10e" type="fixed">
+    <origin xyz="0 0 0.51" rpy="0 0 0"/>
+    <parent link="base_link"/>  
+    <child link="manipulator_base_link"/>  
+  </joint>  
+  <link name="manipulator_base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/visual/base.dae"/>
+      </geometry>
+      <material name="LightGrey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/collision/base.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="4.0"/>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <inertia ixx="0.0061063308908" ixy="0.0" ixz="0.0" iyy="0.0061063308908" iyz="0.0" izz="0.01125"/>
+    </inertial>
+  </link>
+  <joint name="shoulder_pan_joint" type="revolute">
+    <parent link="manipulator_base_link"/>
+    <child link="shoulder_link"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.181"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="330.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.14"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link name="shoulder_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/visual/shoulder.dae"/>
+      </geometry>
+      <material name="LightGrey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/collision/shoulder.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="7.778"/>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <inertia ixx="0.03147431257693659" ixy="0.0" ixz="0.0" iyy="0.03147431257693659" iyz="0.0" izz="0.021875624999999996"/>
+    </inertial>
+  </link>
+  <joint name="shoulder_lift_joint" type="revolute">
+    <parent link="shoulder_link"/>
+    <child link="upper_arm_link"/>
+    <origin rpy="0.0 1.5707963267948966 0.0" xyz="0.0 0.176 0.0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="330.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="3.14"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link name="upper_arm_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/visual/upperarm.dae"/>
+      </geometry>
+      <material name="LightGrey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/collision/upperarm.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="12.93"/>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.3065"/>
+      <inertia ixx="0.4230737407704359" ixy="0.0" ixz="0.0" iyy="0.4230737407704359" iyz="0.0" izz="0.03636562499999999"/>
+    </inertial>
+  </link>
+  <joint name="elbow_joint" type="revolute">
+    <parent link="upper_arm_link"/>
+    <child link="forearm_link"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.137 0.613"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="150.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="3.14"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link name="forearm_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/visual/forearm.dae"/>
+      </geometry>
+      <material name="LightGrey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/collision/forearm.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="3.87"/>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.2855"/>
+      <inertia ixx="0.11059036576383598" ixy="0.0" ixz="0.0" iyy="0.11059036576383598" iyz="0.0" izz="0.010884375"/>
+    </inertial>
+  </link>
+  <joint name="wrist_1_joint" type="revolute">
+    <parent link="forearm_link"/>
+    <child link="wrist_1_link"/>
+    <origin rpy="0.0 1.5707963267948966 0.0" xyz="0.0 0.0 0.571"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="54.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="6.28"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link name="wrist_1_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/visual/wrist1.dae"/>
+      </geometry>
+      <material name="LightGrey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/collision/wrist1.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1.96"/>
+      <origin rpy="0 0 0" xyz="0.0 0.135 0.0"/>
+      <inertia ixx="0.005108247956699999" ixy="0.0" ixz="0.0" iyy="0.005108247956699999" iyz="0.0" izz="0.005512499999999999"/>
+    </inertial>
+  </link>
+  <joint name="wrist_2_joint" type="revolute">
+    <parent link="wrist_1_link"/>
+    <child link="wrist_2_link"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.135 0.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="54.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="6.28"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link name="wrist_2_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/visual/wrist2.dae"/>
+      </geometry>
+      <material name="LightGrey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/collision/wrist2.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1.96"/>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.12"/>
+      <inertia ixx="0.005108247956699999" ixy="0.0" ixz="0.0" iyy="0.005108247956699999" iyz="0.0" izz="0.005512499999999999"/>
+    </inertial>
+  </link>
+  <joint name="wrist_3_joint" type="revolute">
+    <parent link="wrist_2_link"/>
+    <child link="wrist_3_link"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.12"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="54.0" lower="-6.283185307179586" upper="6.283185307179586" velocity="6.28"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link name="wrist_3_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/visual/wrist3.dae"/>
+      </geometry>
+      <material name="LightGrey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://mobile_base/meshes/ur10e/collision/wrist3.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.202"/>
+      <origin rpy="1.5707963267948966 0 0" xyz="0.0 0.092 0.0"/>
+      <inertia ixx="0.00014434577559500002" ixy="0.0" ixz="0.0" iyy="0.00014434577559500002" iyz="0.0" izz="0.00020452500000000002"/>
+    </inertial>
+  </link>
+  <joint name="ee_fixed_joint" type="fixed">
+    <parent link="wrist_3_link"/>
+    <child link="ee_link"/>
+    <origin rpy="0.0 0.0 1.5707963267948966" xyz="0.0 0.117 0.0"/>
+  </joint>
+  <link name="ee_link">
+    <collision>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.01 0 0"/>
+    </collision>
+  </link>
+
+  <transmission name="shoulder_pan_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="shoulder_pan_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="shoulder_pan_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="shoulder_lift_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="shoulder_lift_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="shoulder_lift_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="elbow_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="elbow_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="elbow_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="wrist_1_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="wrist_1_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="wrist_1_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="wrist_2_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="wrist_2_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="wrist_2_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="wrist_3_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="wrist_3_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="wrist_3_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/mobile_ur10e</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+    </gazebo>
+
+</robot>

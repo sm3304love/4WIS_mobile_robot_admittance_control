@@ -8,5 +8,11 @@ Force (Impedance Control) is generated based on the error of the desired positio
 
 
 ### How to use
-1. launch gazebo.launch
+1. Launch gazebo.launch
 `roslaunch mobile_base gazebo.launch`
+
+2. Virtual impedance force for mobile robot 
+`rosrun mobile_impedance impedance_force`
+
+2. Mobile robot admittance control  
+`rosrun mobile_impedance mobile_admittance`
